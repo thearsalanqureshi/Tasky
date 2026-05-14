@@ -1,36 +1,19 @@
-Here's the precise README.md file for your GitHub repository:
-
-```markdown
 # Tasky - Neo-Brutalism Offline Task Manager
 
-<div align="center">
-
-![Tasky Banner](https://img.shields.io/badge/Platform-Flutter-blue?style=for-the-badge&logo=flutter)
-![Offline First](https://img.shields.io/badge/Offline-First-success?style=for-the-badge&logo=airplane)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
-
-**Bold Task Planning. No Login. No Internet. Just Progress.**
-
-[Features](#features) • [Screenshots](#screenshots) • [Architecture](#architecture) • [Tech Stack](#tech-stack) • [Installation](#installation) • [Contributing](#contributing)
-
-</div>
-
----
-
-## 📋 Overview
+## Project Overview
 
 **Tasky** is a completely offline Flutter task management application with a striking Neo-Brutalism design language. Built for students, daily planners, and productivity enthusiasts who want a fun yet practical tool without the complexity of cloud sync, accounts, or internet requirements.
 
 ### Core Promise
-- 🔒 **No Login Required**
-- 📴 **100% Offline** - No internet needed after installation
-- 💾 **Local Storage Only** - Your tasks stay on your device
-- 🎨 **Bold Neo-Brutalism UI** - Playful, high-contrast design that stands out
-- 🚀 **Lightweight & Fast** - No backend, no API calls, instant loading
+-  **No Login Required**
+-  **100% Offline** - No internet needed after installation
+-  **Local Storage Only** - Your tasks stay on your device
+-  **Bold Neo-Brutalism UI** - Playful, high-contrast design that stands out
+-  **Lightweight & Fast** - No backend, no API calls, instant loading
 
 ---
 
-## ✨ Features
+##  Features
 
 ### Task Management
 - **Full CRUD Operations** - Create, Read, Update, Delete tasks
@@ -61,7 +44,7 @@ Here's the precise README.md file for your GitHub repository:
 
 ---
 
-## 🎨 Neo-Brutalism Design
+##  Neo-Brutalism Design
 
 Tasky embraces the bold, playful aesthetic of Neo-Brutalism:
 
@@ -72,38 +55,6 @@ Tasky embraces the bold, playful aesthetic of Neo-Brutalism:
 - **Bold Typography** - Space Grotesk font family, heavy weights
 - **Strong Contrast** - Cream backgrounds with pure black strokes
 
-### Color Palette
-
-#### Light Theme
-| Role | Color | Hex |
-|------|-------|-----|
-| Primary Yellow | ![#FFD84D](https://via.placeholder.com/15/FFD84D/000000?text=+) | `#FFD84D` |
-| Pink Accent | ![#F47BD5](https://via.placeholder.com/15/F47BD5/000000?text=+) | `#F47BD5` |
-| Mint Green | ![#8CF28A](https://via.placeholder.com/15/8CF28A/000000?text=+) | `#8CF28A` |
-| Blue Accent | ![#A7D8FF](https://via.placeholder.com/15/A7D8FF/000000?text=+) | `#A7D8FF` |
-| Cream Background | ![#FFF9EF](https://via.placeholder.com/15/FFF9EF/000000?text=+) | `#FFF9EF` |
-| Black Stroke | ![#050505](https://via.placeholder.com/15/050505/000000?text=+) | `#050505` |
-
-#### Dark Theme
-| Role | Color | Hex |
-|------|-------|-----|
-| Background | ![#101010](https://via.placeholder.com/15/101010/000000?text=+) | `#101010` |
-| Surface | ![#1B1B1B](https://via.placeholder.com/15/1B1B1B/000000?text=+) | `#1B1B1B` |
-| Card | ![#242424](https://via.placeholder.com/15/242424/000000?text=+) | `#242424` |
-| Text | ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) | `#FFFFFF` |
-
----
-
-## 📱 Screens & User Flow
-
-### App Navigation
-```
-Launch App → Splash → Onboarding (first time) → Main App
-                                                      ↓
-                                    Bottom Nav: Home | Tasks | Planner | Insights
-                                                      ↓
-                                    Settings (from Home top-right menu)
-```
 
 ### Screen Overview
 
@@ -118,14 +69,14 @@ Launch App → Splash → Onboarding (first time) → Main App
 | **Settings** | App configuration | Theme, profile, notifications, data management |
 
 ### Bottom Navigation
-- 🏠 **Home** - Dashboard & daily overview
-- ✅ **Tasks** - Complete task management
-- 📅 **Planner** - Daily planning & scheduling
-- 📊 **Insights** - Productivity analytics
+-  **Home** - Dashboard & daily overview
+-  **Tasks** - Complete task management
+-  **Planner** - Daily planning & scheduling
+-  **Insights** - Productivity analytics
 
 ---
 
-## 🏗️ Architecture
+## Project Architecture
 
 Tasky follows a **Clean MVC** architecture with **feature-first modules**:
 
@@ -171,7 +122,7 @@ View (UI) → Controller (GetX) → Repository → Service → SharedPreferences
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Technology | Purpose | Version |
 |------------|---------|---------|
@@ -197,58 +148,7 @@ View (UI) → Controller (GetX) → Repository → Service → SharedPreferences
 
 ---
 
-## 📦 Installation
-
-### Prerequisites
-- Flutter SDK (3.16 or higher)
-- Dart SDK (3.2 or higher)
-- Android Studio / VS Code
-- iOS Simulator or Android Emulator (or physical device)
-
-### Setup
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/tasky.git
-cd tasky
-```
-
-2. **Install dependencies**
-```bash
-flutter pub get
-```
-
-3. **Run the app**
-```bash
-flutter run
-```
-
-### Platform-Specific Setup
-
-#### Android
-No additional configuration required. The app works offline by default.
-
-#### iOS
-Add to `ios/Runner/Info.plist` for image picker permissions:
-```xml
-<key>NSPhotoLibraryUsageDescription</key>
-<string>Allow access to photo library for profile avatar</string>
-<key>NSCameraUsageDescription</key>
-<string>Allow camera access for profile avatar</string>
-```
-
-### Build APK/IPA
-```bash
-# Android APK
-flutter build apk --release
-
-# iOS IPA
-flutter build ios --release
-```
-
----
-
-## 🧩 Key Design Decisions
+##  Key Design Decisions
 
 ### Why No Backend?
 Tasky is built for simplicity and privacy. No accounts, no cloud sync, no data collection. Everything stays on the device. This eliminates:
@@ -272,17 +172,9 @@ For MVP simplicity, SharedPreferences handles key-value storage efficiently. Tas
 - Handles simple data structures well
 - Provides instant read/write access
 
-### Neo-Brutalism Why?
-The bold, high-contrast design stands out in the productivity app space. Neo-Brutalism offers:
-- Memorable visual identity
-- Clear hierarchy through contrast
-- Playful, approachable aesthetic
-- Distinctive cards with thick borders
-- Better visibility in various lighting conditions
-
 ---
 
-## 📱 Responsive Design
+##  Responsive Design
 
 Tasky adapts to different screen sizes:
 
@@ -296,7 +188,7 @@ Tasky adapts to different screen sizes:
 
 ---
 
-## 🚦 App Routes
+##  App Routes
 
 | Route | Screen | Parameters |
 |-------|--------|------------|
@@ -314,7 +206,7 @@ Tasky adapts to different screen sizes:
 
 ---
 
-## 🔔 Local Notifications
+##  Local Notifications
 
 Tasky uses `flutter_local_notifications` for completely offline reminders:
 
@@ -326,7 +218,7 @@ Tasky uses `flutter_local_notifications` for completely offline reminders:
 
 ---
 
-## 💾 Data Persistence
+##  Data Persistence
 
 ### Storage Keys
 | Key | Type | Description |
@@ -343,80 +235,7 @@ Tasky uses `flutter_local_notifications` for completely offline reminders:
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Tasky is open source and built with clean architecture principles.
-
-### Getting Started
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Code Guidelines
-- Follow Clean MVC architecture
-- Use GetX controllers for state management
-- Maintain Neo-Brutalism design consistency
-- Write meaningful commit messages
-- Test on both iOS and Android
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-```
-MIT License
-
-Copyright (c) 2024 Tasky
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-## 🙏 Acknowledgments
-
-- **Flutter Team** - Amazing cross-platform framework
-- **GetX** - Lightweight state management
-- **Neo-Brutalism Design Movement** - Design inspiration
-- **Open Source Community** - Package maintainers and contributors
-
----
-
-## 📞 Contact & Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/tasky/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/tasky/discussions)
-- **Email**: your.email@example.com
-
----
-
-<div align="center">
-
 **Made with ❤️ for productivity enthusiasts**
 
 *No accounts. No cloud. No complexity. Just tasks.*
 
-</div>
-```
-
-This README.md provides a comprehensive, well-structured documentation for your GitHub repository that accurately represents all aspects of your Tasky project as specified in the proposal.
