@@ -126,8 +126,6 @@ View (UI) → Controller (GetX) → Repository → Service → SharedPreferences
 
 | Technology | Purpose | Version |
 |------------|---------|---------|
-| **Flutter** | Cross-platform framework | 3.16+ |
-| **Dart** | Programming language | 3.2+ |
 | **GetX** | State management, routing, DI | ^4.6.6 |
 | **SharedPreferences** | Local key-value storage | ^2.2.2 |
 | **flutter_local_notifications** | Offline reminders | ^16.3.2 |
