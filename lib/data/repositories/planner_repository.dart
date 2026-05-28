@@ -1,4 +1,4 @@
-import '../../core/constants/storage_keys.dart';
+import 'dart:convert';
 import '../models/planner_day_model.dart';
 import '../services/local_storage_service.dart';
 
@@ -6,6 +6,8 @@ class PlannerRepository {
   const PlannerRepository(this._localStorageService);
 
   final LocalStorageService _localStorageService;
+
+  static const String _plannerDaysKey = 'plannerDays';
 
   PlannerDayModel getPlannerDay(DateTime date) {
     final dateKey = PlannerDayModel.dateKeyFor(date);
@@ -38,29 +40,43 @@ class PlannerRepository {
   }
 
   Future<bool> clearAllPlannerData() {
-    return _localStorageService.remove(StorageKeys.plannerDays);
+    return _localStorageService.writeString(_plannerDaysKey, '');
   }
 
   Map<String, PlannerDayModel> _storedPlannerDays() {
-    final rawDays = _localStorageService.getJsonMap(StorageKeys.plannerDays);
-    final plannerDays = <String, PlannerDayModel>{};
-    for (final entry in rawDays.entries) {
-      final rawValue = entry.value;
-      if (rawValue is! Map) {
-        continue;
-      }
-      final plannerDay = PlannerDayModel.fromJson(
-        Map<String, dynamic>.from(rawValue),
-      );
-      plannerDays[plannerDay.dateKey] = plannerDay;
+    final jsonString = _localStorageService.readString(_plannerDaysKey);
+    if (jsonString == null || jsonString.isEmpty) {
+      return <String, PlannerDayModel>{};
     }
-    return plannerDays;
+    try {
+      final decoded = jsonDecode(jsonString);
+      if (decoded is Map) {
+        final plannerDays = <String, PlannerDayModel>{};
+        for (final entry in decoded.entries) {
+          final rawValue = entry.value;
+          if (rawValue is! Map) {
+            continue;
+          }
+          final plannerDay = PlannerDayModel.fromJson(
+            Map<String, dynamic>.from(rawValue),
+          );
+          plannerDays[plannerDay.dateKey] = plannerDay;
+        }
+        return plannerDays;
+      }
+    } catch (_) {
+      // fallback
+    }
+    return <String, PlannerDayModel>{};
   }
 
   Future<bool> _savePlannerDays(Map<String, PlannerDayModel> plannerDays) {
-    return _localStorageService.setJsonMap(
-      StorageKeys.plannerDays,
+    final jsonString = jsonEncode(
       plannerDays.map((key, value) => MapEntry(key, value.toJson())),
+    );
+    return _localStorageService.writeString(
+      _plannerDaysKey,
+      jsonString,
     );
   }
 }

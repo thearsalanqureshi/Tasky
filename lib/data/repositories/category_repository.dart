@@ -1,3 +1,4 @@
+import 'dart:convert';
 import '../../core/constants/storage_keys.dart';
 import '../models/category_model.dart';
 import '../services/local_storage_service.dart';
@@ -16,22 +17,36 @@ class CategoryRepository {
   final LocalStorageService _localStorageService;
 
   List<CategoryModel> getCategories() {
-    final categories = _localStorageService
-        .getJsonList(StorageKeys.categoriesList)
-        .map(CategoryModel.fromJson)
-        .toList();
-    return categories.isEmpty ? defaultCategories : categories;
+    final jsonString = _localStorageService.readString(StorageKeys.categoriesList);
+    if (jsonString == null || jsonString.isEmpty) {
+      return defaultCategories;
+    }
+    try {
+      final decoded = jsonDecode(jsonString);
+      if (decoded is List) {
+        final categories = decoded
+            .map((item) => CategoryModel.fromJson(Map<String, dynamic>.from(item as Map)))
+            .toList();
+        return categories.isEmpty ? defaultCategories : categories;
+      }
+    } catch (_) {
+      // fallback
+    }
+    return defaultCategories;
   }
 
   Future<bool> saveCategories(List<CategoryModel> categories) {
-    return _localStorageService.setJsonList(
-      StorageKeys.categoriesList,
+    final jsonString = jsonEncode(
       categories.map((category) => category.toJson()).toList(),
+    );
+    return _localStorageService.writeString(
+      StorageKeys.categoriesList,
+      jsonString,
     );
   }
 
   Future<bool> ensureDefaultCategories() async {
-    if (_localStorageService.getString(StorageKeys.categoriesList) != null) {
+    if (_localStorageService.readString(StorageKeys.categoriesList) != null) {
       return true;
     }
     return saveCategories(defaultCategories);
