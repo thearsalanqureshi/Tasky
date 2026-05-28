@@ -9,6 +9,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_local_notifications: ^21.0.0
+  flutter_svg: ^2.2.4
+  get: ^4.7.3
+  image_picker: ^1.2.2
+  intl: ^0.20.2
+  lottie: ^3.3.3
+  path_provider: ^2.1.5
+  shared_preferences: ^2.5.5
+  uuid: ^4.5.3
 
 dev_dependencies:
   flutter_test:
