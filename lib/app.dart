@@ -8,7 +8,6 @@ import 'core/routes/app_routes.dart';
 import 'core/theme/app_theme.dart';
 
 class TaskyApp extends StatelessWidget {
-  const TaskyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,6 @@ class TaskyApp extends StatelessWidget {
       initialBinding: InitialBinding(),
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
     );
   }
 }
